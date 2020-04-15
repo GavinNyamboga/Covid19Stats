@@ -12,8 +12,6 @@
     <color name="critical">#B90808</color>
     <color name="active">#AFAC14</color>
 
-    <color name="textColorPrimary">#000000</color>
-    <color name="colorBackground">#FFFFFF</color>
 
     <!-- switch colors -->
     <color name="disable_foreground_grey">#15485B</color>

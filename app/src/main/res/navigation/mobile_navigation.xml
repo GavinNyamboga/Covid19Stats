@@ -16,6 +16,12 @@
         android:name="com.dev.covid19stats.ui.CountryFragment"
         android:label="@string/title_location"
         tools:layout="@layout/fragment_country" />
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.dev.covid19stats.ui.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search"
+        />
 
     <fragment
         android:id="@+id/navigation_news"

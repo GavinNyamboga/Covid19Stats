@@ -43,11 +43,6 @@ public class GlobalFragment extends Fragment {
         call.enqueue(new Callback<GlobalResources>() {
             @Override
             public void onResponse(Call<GlobalResources> call, Response<GlobalResources> response) {
-                String displayCases="";
-                String displayDeaths="";
-                String displayRecoveries = "";
-                String displayActive = "";
-                String displayCritical = "";
 
 
                 GlobalResources resources = response.body();
@@ -57,15 +52,15 @@ public class GlobalFragment extends Fragment {
                 Integer text4 = resources.active;
                 Integer text5 = resources.critical;
 
-                displayCases = NumberFormat.getIntegerInstance().format(text);
+                String displayCases = NumberFormat.getIntegerInstance().format(text);
                 cases.setText(displayCases);
-                displayRecoveries = NumberFormat.getIntegerInstance().format(text2);
+                String displayRecoveries = NumberFormat.getIntegerInstance().format(text2);
                 recoveries.setText(displayRecoveries);
-                displayDeaths =NumberFormat.getIntegerInstance().format(text3);
+                String displayDeaths =NumberFormat.getIntegerInstance().format(text3);
                 deaths.setText(displayDeaths);
-                displayActive = NumberFormat.getIntegerInstance().format(text4);
+                String displayActive = NumberFormat.getIntegerInstance().format(text4);
                 active.setText(displayActive);
-                displayCritical = NumberFormat.getIntegerInstance().format(text5);
+                String displayCritical = NumberFormat.getIntegerInstance().format(text5);
                critical.setText(displayCritical);
 
             }

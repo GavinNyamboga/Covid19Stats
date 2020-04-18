@@ -12,11 +12,11 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface APIInterface {
-    @GET("/all")
+    @GET("v2/all")
     Call<GlobalResources> getListResources();
-    @GET("countries?sort=cases")
+    @GET("v2/countries?sort=cases")
     Call<List<CountriesResources>> getAllCountriesData();
-    @GET("countries/{query}")
+    @GET("v2/countries/{query}")
     Call<SearchCountry> getEachCountryData(@Path("query") String query);
 
 

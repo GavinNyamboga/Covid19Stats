@@ -128,11 +128,8 @@ public class SearchFragment extends Fragment {
 
                     Snackbar.make(getView(),"Country not found try Again!!",Snackbar.LENGTH_INDEFINITE)
                             .setActionTextColor( getResources().getColor(R.color.colorPrimary))
-                            .setAction("OK", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
+                            .setAction("OK", v -> {
 
-                                }
                             }).show();
                 }
 

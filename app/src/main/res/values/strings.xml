@@ -14,12 +14,15 @@
     <string name="global_cases">Cases</string>
     <string name="global_recoveries">Recoveries</string>
     <string name="global_deaths">Deaths</string>
-    <string name="active">Active</string>
-    <string name="critical">Critical</string>
+    <string name="active">Active Cases</string>
+    <string name="critical">Critical Cases</string>
     <string name="info">Info</string>
     <string name="today_deaths">Today Deaths</string>
     <string name="confirmed_cases">Confirmed Cases</string>
     <string name="recovered">Recovered</string>
     <string name="text_day_mode">Day Mode</string>
     <string name="text_night_mode">Night Mode</string>
+    <string name="loading">loading..</string>
+    <string name="global_numbers">Official COVID-19 Global Numbers</string>
+    <string name="updated_after">Updated every 10 minutes</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.dev.covid19stats.network;
+package com.dev.covid19stats.network.Covid19API;
 
 import com.dev.covid19stats.models.CountriesResources;
 import com.dev.covid19stats.models.GlobalResources;
@@ -9,9 +9,9 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
-public interface APIInterface {
+
+public interface CovidAPIInterface {
     @GET("v2/all")
     Call<GlobalResources> getListResources();
     @GET("v2/countries?sort=cases")

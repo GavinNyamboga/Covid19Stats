@@ -25,15 +25,15 @@
                 android:id="@+id/corona_info_image"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/coronavirus"
-                />
+                android:src="@drawable/ic_covid_19"
+                android:contentDescription="@string/covid19" />
 
             <TextView
                 android:id="@+id/corona_info_title"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="What are Corona Viruses?"
+                android:text="@string/what_are_corona_viruses"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
 

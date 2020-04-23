@@ -20,19 +20,16 @@ import java.util.List;
 public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.CountriesViewHolder> {
 
     private List<CountriesResources> countriesResourcesList;
-    private Context context;
 
     public CountriesAdapter(List<CountriesResources> countriesResourcesList, Context context) {
         this.countriesResourcesList = countriesResourcesList;
-        this.context = context;
     }
 
     @NonNull
     @Override
     public CountriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.countries_data,parent,false);
-        CountriesViewHolder countriesViewHolder = new CountriesViewHolder(view);
-        return countriesViewHolder;
+        return new CountriesViewHolder(view);
     }
 
     @Override
@@ -57,7 +54,7 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.Coun
 
         Integer todayDeaths = countriesResourcesList.get(position).getTodayDeaths();
         String todayDeaths2 = NumberFormat.getIntegerInstance().format(todayDeaths);
-        holder.todayDeaths.setText(todayDeaths2);
+        holder.todayDeaths.setText(todayDeaths2 );
 
         Integer todayCases = countriesResourcesList.get(position).getTodayCases();
         String todayCases2 = NumberFormat.getIntegerInstance().format(todayCases);
@@ -70,12 +67,12 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.Coun
         return countriesResourcesList.size();
     }
 
-    public class CountriesViewHolder extends RecyclerView.ViewHolder {
+    class CountriesViewHolder extends RecyclerView.ViewHolder {
         private TextView countryName, countryCases, countryDeaths, countryRecovered,todayCases, todayDeaths;
         private ImageView flagImage;
 
 
-        public CountriesViewHolder(@NonNull View itemView) {
+        CountriesViewHolder(@NonNull View itemView) {
             super(itemView);
 
             countryName = itemView.findViewById(R.id.country);

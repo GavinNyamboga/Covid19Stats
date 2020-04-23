@@ -2,45 +2,42 @@ package com.dev.covid19stats.ui;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+
+import android.content.Context;
 import android.os.Bundle;
 
-import android.text.Layout;
-import android.text.TextUtils;
-import android.view.KeyEvent;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.dev.covid19stats.R;
-import com.dev.covid19stats.models.CountriesResources;
 import com.dev.covid19stats.models.SearchCountry;
-import com.dev.covid19stats.network.APIInterface;
-import com.dev.covid19stats.network.RetrofitClientInstance;
+import com.dev.covid19stats.network.Covid19API.CovidAPIInterface;
+import com.dev.covid19stats.network.Covid19API.Covid19ClientInstance;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
 import java.text.NumberFormat;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Query;
 
 
 public class SearchFragment extends Fragment {
 
-    private APIInterface apiInterface;
     private EditText searchCountryTxt;
-    private ImageView searchBtn;
-    public static String COUNTRY_NAME ="";
+
 
     private CardView countryCard;
     private TextView countryName, countryCases, countryDeaths, countryRecovered,todayCases, todayDeaths;
@@ -52,8 +49,14 @@ public class SearchFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_search, container, false);
 
         searchCountryTxt = root.findViewById(R.id.search_country);
-        searchBtn = root.findViewById(R.id.search_country_btn);
+        Button searchBtn = root.findViewById(R.id.search_country_btn);
         countryCard = root.findViewById(R.id.Country_card);
+
+        searchCountryTxt.requestFocus();
+
+        InputMethodManager inputMethodManager = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
+        assert inputMethodManager != null;
+        inputMethodManager.showSoftInput(searchCountryTxt,InputMethodManager.SHOW_FORCED);
 
 
         countryName = root.findViewById(R.id.country2);
@@ -66,26 +69,16 @@ public class SearchFragment extends Fragment {
 
 
 
-        searchCountryTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH){
-                    performSearch();
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        searchBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
+        searchCountryTxt.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH){
                 performSearch();
+                return true;
             }
+            return false;
         });
 
+
+        searchBtn.setOnClickListener(v -> performSearch());
 
 
 
@@ -95,12 +88,12 @@ public class SearchFragment extends Fragment {
 
     private void performSearch() {
 
-        apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface.class);
+        CovidAPIInterface covidApiInterface = Covid19ClientInstance.getRetrofitInstance().create(CovidAPIInterface.class);
 
 
         String searchInput = searchCountryTxt.getText().toString();
 
-        Call<SearchCountry> call= apiInterface.getEachCountryData(searchInput);
+        Call<SearchCountry> call= covidApiInterface.getEachCountryData(searchInput);
         call.enqueue(new Callback<SearchCountry>() {
             @Override
             public void onResponse(Call<SearchCountry> call, Response<SearchCountry> response) {
@@ -126,7 +119,7 @@ public class SearchFragment extends Fragment {
                 }
                 else {
 
-                    Snackbar.make(getView(),"Country not found try Again!!",Snackbar.LENGTH_INDEFINITE)
+                    Snackbar.make(Objects.requireNonNull(getView()),"Country not found try Again!!",Snackbar.LENGTH_INDEFINITE)
                             .setActionTextColor( getResources().getColor(R.color.colorPrimary))
                             .setAction("OK", v -> {
 
@@ -141,13 +134,10 @@ public class SearchFragment extends Fragment {
             public void onFailure(Call<SearchCountry> call, Throwable t) {
                 countryCard.setVisibility(View.GONE);
 
-               Snackbar.make(getView(),"Check Internet Connection and Try Again!",Snackbar.LENGTH_INDEFINITE)
+               Snackbar.make(Objects.requireNonNull(getView()),"Check Internet Connection and Try Again!",Snackbar.LENGTH_INDEFINITE)
                        .setActionTextColor( getResources().getColor(R.color.colorPrimary))
-                       .setAction("OK", new View.OnClickListener() {
-                           @Override
-                           public void onClick(View v) {
+                       .setAction("OK", v -> {
 
-                           }
                        }).show();
             }
         });

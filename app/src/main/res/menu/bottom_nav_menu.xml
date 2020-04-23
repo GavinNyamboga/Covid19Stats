@@ -10,11 +10,6 @@
         android:id="@+id/navigation_country"
         android:icon="@drawable/ic_pin"
         android:title="@string/title_location" />
-    <item
-        android:id="@+id/navigation_search"
-        android:icon="@drawable/ic_search_black_24dp"
-        android:title="Search"
-        />
 
     <item
         android:id="@+id/navigation_news"

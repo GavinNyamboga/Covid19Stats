@@ -18,7 +18,6 @@ public class InfoAdapter extends BaseAdapter {
     private int[] coronaTipsImages;
 
     public InfoAdapter(Context context, String[] coronaTips, int[] coronaTipsImages) {
-        this.layoutInflater = layoutInflater;
         this.context = context;
         this.coronaTips = coronaTips;
         this.coronaTipsImages = coronaTipsImages;
@@ -45,6 +44,7 @@ public class InfoAdapter extends BaseAdapter {
             layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
         if (convertView == null) {
+            assert layoutInflater != null;
             convertView = layoutInflater.inflate(R.layout.info_layout, null);
         }
 

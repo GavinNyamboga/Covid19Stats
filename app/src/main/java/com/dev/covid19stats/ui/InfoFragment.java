@@ -2,42 +2,44 @@ package com.dev.covid19stats.ui;
 
 import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+
+
 import android.widget.GridView;
-import android.widget.Switch;
-import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 
-import com.dev.covid19stats.HomeActivity;
+
 import com.dev.covid19stats.R;
 import com.dev.covid19stats.adapters.InfoAdapter;
+
+import java.util.Objects;
 
 
 public class InfoFragment extends Fragment {
 
-    GridView gridView;
-
-    String[]coronaTips ={
-            "What are Corona Viruses?",
+    private String[]coronaTips ={
+            "What is Covid-19?",
             "What are the symptoms?",
             "How is it transmitted?",
             "How to prevent it?",
-            "When to wear masks?",
-            "Is there a vaccine or treatment?"
+            "Myths and Facts",
+            "Is there a vaccine or treatment?",
+            "About Developer"
     };
-    int[] getCoronaTipsImages = {
-            R.drawable.coronavirus,
-            R.drawable.fever,
-            R.drawable.coughing,
-            R.drawable.handwashing,
-            R.drawable.mask,
-            R.drawable.vaccine
+    private int[] getCoronaTipsImages = {
+            R.drawable.ic_covid_19,
+            R.drawable.ic_fever,
+            R.drawable.ic_cough,
+            R.drawable.ic_hand_wash,
+            R.drawable.ic_face_mask,
+            R.drawable.ic_vaccine,
+            R.drawable.ic_developer
     };
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -45,12 +47,67 @@ public class InfoFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_info, container, false);
 
-        gridView = root.findViewById(R.id.gridView);
+        GridView gridView = root.findViewById(R.id.gridView);
 
         InfoAdapter infoAdapter =new InfoAdapter(getContext(),coronaTips,getCoronaTipsImages);
         gridView.setAdapter(infoAdapter);
 
-        gridView.setOnItemClickListener((parent, view, position, id) -> Toast.makeText(getContext(), "You clicked " + coronaTips[position], Toast.LENGTH_SHORT).show());
+
+        gridView.setOnItemClickListener((parent, view, position, id) -> {
+
+
+            switch (position){
+                case 0:
+                    CoronaFragment coronaFragment = new CoronaFragment();
+                    Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container,coronaFragment,"findThisFragment")
+                            .addToBackStack(null)
+                            .commit();
+                    break;
+                case 1:
+                    SymptomsFragment symptomsFragment = new SymptomsFragment();
+                    Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container,symptomsFragment,"findThisFragment")
+                            .addToBackStack(null)
+                            .commit();
+                    break;
+                case 2:
+                    TransmissionFragment transmissionFragment = new TransmissionFragment();
+                    Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container,transmissionFragment,"findThisFragment")
+                            .addToBackStack(null)
+                            .commit();
+                    break;
+                case 3:
+                    PreventionFragment preventionFragment = new PreventionFragment();
+                    Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container,preventionFragment,"findThisFragment")
+                            .addToBackStack(null)
+                            .commit();
+                    break;
+                case 4:
+                    MythsFragment mythsFragment = new MythsFragment();
+                    Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container,mythsFragment,"findFragment")
+                            .addToBackStack(null)
+                            .commit();
+                    break;
+                case 5:
+                    VaccineFragment vaccineFragment = new VaccineFragment();
+                    Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container,vaccineFragment,"findThisFragment")
+                            .addToBackStack(null)
+                            .commit();
+                    break;
+                case 6:
+                    DeveloperFragment developerFragment = new DeveloperFragment();
+                    Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container,developerFragment,"findThisFragment")
+                            .addToBackStack(null)
+                            .commit();
+                    break;
+            }
+        });
 
 
 

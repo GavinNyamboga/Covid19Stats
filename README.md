@@ -4,9 +4,7 @@
 globally and by each country and also provides information about the Corona Virus.
 
 
-[![MIT license]
-(https://img.shields.io/badge/License-MIT-blue.svg)]
-(https://opensource.org/licenses/MIT)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 
 ## find the Apk file here

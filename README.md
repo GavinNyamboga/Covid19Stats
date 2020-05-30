@@ -1,5 +1,6 @@
-#### Used
+#### API Used
 [NovelCOVID API](https://corona.lmao.ninja/docs/)
+[NewsAPI](https://newsapi.org)
 ### icons used
 [FlatIcons] (http://www.flaticon.com)
 ### Libaries

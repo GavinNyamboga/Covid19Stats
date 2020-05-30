@@ -1,11 +1,11 @@
-# COVID19 Stats App\
+# COVID19 Stats App
 [COVID19Stats](https://github.com/GavinNyamboga/Covid19Stats)
  is an android application that gives the latest COVID19 statistics
 globally and by each country and also provides information about the Corona Virus.
 
 
-[![License: MIT]
-(https://img.shields.io/badge/License-MIT-yellow.svg)]
+[![MIT license]
+(https://img.shields.io/badge/License-MIT-blue.svg)]
 (https://opensource.org/licenses/MIT)
 
 

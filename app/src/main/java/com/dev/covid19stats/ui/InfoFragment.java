@@ -3,18 +3,25 @@ package com.dev.covid19stats.ui;
 import androidx.fragment.app.Fragment;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 
+import android.widget.CompoundButton;
 import android.widget.GridView;
+import android.widget.Switch;
 
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentTransaction;
 
 
+import com.dev.covid19stats.HomeActivity;
 import com.dev.covid19stats.R;
 import com.dev.covid19stats.adapters.InfoAdapter;
 
@@ -22,6 +29,7 @@ import java.util.Objects;
 
 
 public class InfoFragment extends Fragment {
+    ThemeSwitch themeSwitch;
 
     private String[]coronaTips ={
             "What is Covid-19?",
@@ -45,9 +53,38 @@ public class InfoFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+
+        themeSwitch = new ThemeSwitch(getActivity().getApplicationContext());
+        //use theme on launch
+        if (themeSwitch.loadDarkMode()){
+            getContext().getTheme().applyStyle(R.style.DarkTheme,true);
+            //return localInflater.inflate(R.layout.fragment_info,container,false);
+        }else {
+            getContext().getTheme().applyStyle(R.style.LightTheme,true);
+            //return localInflater.inflate(R.layout.fragment_info,container,false);
+        }
+
         View root = inflater.inflate(R.layout.fragment_info, container, false);
 
+
         GridView gridView = root.findViewById(R.id.gridView);
+        Switch darkSwitch = root.findViewById(R.id.switch_theme);
+
+        if (themeSwitch.loadDarkMode()){
+            darkSwitch.setChecked(true);
+        }
+        darkSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    themeSwitch.setDarkMode(true);
+                    reload();
+                }else {
+                    themeSwitch.setDarkMode(false);
+                    reload();
+                }
+            }
+        });
 
         InfoAdapter infoAdapter =new InfoAdapter(getContext(),coronaTips,getCoronaTipsImages);
         gridView.setAdapter(infoAdapter);
@@ -115,7 +152,16 @@ public class InfoFragment extends Fragment {
         return root;
     }
 
+    private void reload() {
 
+        Intent intent = new Intent(getActivity(),HomeActivity.class);
+
+        startActivity(new Intent(getActivity(), HomeActivity.class));
+        /*Fragment fragment = new InfoFragment();
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container,fragment).commit();
+*/
+    }
 
 
 }

@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -31,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/global_numbers"
-                android:textColor="@android:color/white"
+                android:textColor="?attr/colorTxt"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -41,213 +40,205 @@
                 android:text="@string/updated_after" />
 
         </LinearLayout>
-         <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="10dp">
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:orientation="vertical">
-
-                 <LinearLayout
-                     android:layout_width="match_parent"
-                     android:layout_height="50dp"
-                     android:orientation="horizontal"
-                     android:gravity="center"
-                     tools:ignore="UseCompoundDrawables">
-
-                     <TextView
-                         android:id="@+id/cases_txt"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:text="@string/global_cases"
-                         android:textSize="30sp"
-                         android:layout_gravity="center"
-                         android:textColor="@android:color/white"/>
-                     <ImageView
-                         android:layout_width="40dp"
-                         android:layout_height="40dp"
-                         android:layout_marginStart="5dp"
-                         android:src="@drawable/ic_confirmation"
-                         android:contentDescription="@string/global_cases" />
-
-                 </LinearLayout>
-
-
-                <TextView
-                    android:id="@+id/cases_total"
-                    android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <androidx.cardview.widget.CardView
+                android:backgroundTint="?attr/colorPrimaryCards"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="5dp"
+                android:elevation="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:text="@string/loading"
-                    android:textStyle="bold"
-                    android:textSize="30sp"
-                    android:textColor="@color/orange"/>
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/colorTxt"
+                        android:text="@string/global_cases"
+                        android:layout_gravity="center"
+                        android:textSize="25sp"/>
+                    <TextView
+                        android:id="@+id/cases_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/orange"
+                        android:text="___"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="7dp"
+                        app:srcCompat="@drawable/ic_confirmation"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/global_cases" />
+                </LinearLayout>
 
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:backgroundTint="?attr/colorPrimaryCards"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="5dp"
+                android:elevation="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/colorTxt"
+                        android:text="@string/global_deaths"
+                        android:layout_gravity="center"
+                        android:textSize="25sp"/>
+                    <TextView
+                        android:id="@+id/deaths_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/deathsColor"
+                        android:text="___"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:srcCompat="@drawable/ic_skull"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:contentDescription="@string/global_deaths" />
+                </LinearLayout>
 
-                 <View
-                     android:layout_width="match_parent"
-                     android:layout_height="2dp"
-                     android:background="#c0c0c0"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <androidx.cardview.widget.CardView
+                android:backgroundTint="?attr/colorPrimaryCards"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="5dp"
+                android:elevation="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/colorTxt"
+                        android:text="@string/global_recoveries"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"/>
+                    <TextView
+                        android:id="@+id/recoveries_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/recoveryColor"
+                        android:text="___"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        app:srcCompat="@drawable/ic_recovery"
+                        android:contentDescription="@string/recovered" />
+                </LinearLayout>
 
-                 <LinearLayout
-                     android:layout_width="match_parent"
-                     android:layout_height="50dp"
-                     android:orientation="horizontal"
-                     android:gravity="center"
-                     tools:ignore="UseCompoundDrawables">
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:backgroundTint="?attr/colorPrimaryCards"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="5dp"
+                android:elevation="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/colorTxt"
+                        android:text="@string/critical"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"/>
+                    <TextView
+                        android:id="@+id/critical_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/critical"
+                        android:text="___"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:srcCompat="@drawable/ic_ventilator"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        android:contentDescription="@string/critical" />
+                </LinearLayout>
 
-                     <TextView
-                         android:id="@+id/deaths_txt"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:text="@string/global_deaths"
-                         android:textSize="30sp"
-                         android:gravity="center"
-                         android:textColor="@android:color/white"/>
-                     <ImageView
-                         android:layout_width="40dp"
-                         android:layout_height="40dp"
-                         android:src="@drawable/ic_skull"
-                         android:layout_marginStart="5dp"
-                         android:contentDescription="@string/global_deaths" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
-                 </LinearLayout>
-                         <TextView
-                             android:id="@+id/deaths_total"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_gravity="center"
-                             android:layout_marginBottom="5dp"
-                             android:text="@string/loading"
-                             android:textStyle="bold"
-                             android:textSize="30sp"
-                             android:textColor="@color/deathsColor"/>
+            <androidx.cardview.widget.CardView
+                android:backgroundTint="?attr/colorPrimaryCards"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="20dp"
+                app:cardCornerRadius="5dp"
+                android:elevation="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/colorTxt"
+                        android:text="@string/active"
+                        android:layout_gravity="center"
+                        android:textSize="25sp"/>
+                    <TextView
+                        android:id="@+id/active_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/active"
+                        android:text="___"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="8dp"
+                        app:srcCompat="@drawable/ic_cough"
+                        android:contentDescription="@string/active" />
+                </LinearLayout>
 
+            </androidx.cardview.widget.CardView>
 
-                 <View
-                     android:layout_width="match_parent"
-                     android:layout_height="2dp"
-                     android:background="#c0c0c0"/>
-
-
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="50dp"
-                 android:orientation="horizontal"
-                 android:gravity="center"
-                 tools:ignore="UseCompoundDrawables">
-                         <TextView
-                             android:id="@+id/recoveries_txt"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:text="@string/recovered"
-                             android:textSize="30sp"
-                             android:gravity="center"
-                             android:textColor="@android:color/white"/>
-                 <ImageView
-                     android:layout_width="40dp"
-                     android:layout_height="40dp"
-                     android:src="@drawable/ic_recovery"
-                     android:contentDescription="@string/recovered" />
-             </LinearLayout>
-                         <TextView
-                             android:id="@+id/recoveries_total"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_gravity="center"
-                             android:layout_marginBottom="5dp"
-                             android:text="@string/loading"
-                             android:textStyle="bold"
-                             android:textSize="30sp"
-                             android:textColor="@color/recoveryColor"/>
-
-
-                 <View
-                     android:layout_width="match_parent"
-                     android:layout_height="2dp"
-                     android:background="#c0c0c0"/>
-
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="50dp"
-                 android:orientation="horizontal"
-                 android:gravity="center"
-                 tools:ignore="UseCompoundDrawables">
-
-                         <TextView
-                             android:id="@+id/active_txt"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_gravity="center"
-                             android:gravity="center"
-                             android:text="@string/active"
-                             android:textColor="@android:color/white"
-                             android:textSize="30sp" />
-                 <ImageView
-                     android:layout_width="40dp"
-                     android:layout_height="40dp"
-                     android:src="@drawable/ic_cough"
-                     android:contentDescription="@string/active" />
-             </LinearLayout>
-
-                         <TextView
-                             android:id="@+id/active_total"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_gravity="center"
-                             android:layout_marginBottom="5dp"
-                             android:text="@string/loading"
-                             android:textStyle="bold"
-                             android:textSize="30sp"
-                             android:textColor="@color/active"/>
-
-
-                 <View
-                     android:layout_width="match_parent"
-                     android:layout_height="2dp"
-                     android:background="#c0c0c0"/>
-
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="50dp"
-                 android:orientation="horizontal"
-                 android:gravity="center"
-                 tools:ignore="UseCompoundDrawables">
-                         <TextView
-                             android:id="@+id/critical_txt"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_gravity="center"
-                             android:text="@string/critical"
-                             android:textSize="30sp"
-                             android:gravity="center"
-                             android:textColor="@android:color/white"/>
-                 <ImageView
-                     android:layout_width="40dp"
-                     android:layout_height="40dp"
-                     android:src="@drawable/ic_critical"
-                     android:layout_marginStart="5dp"
-                     android:contentDescription="@string/critical" />
-             </LinearLayout>
-                         <TextView
-                             android:id="@+id/critical_total"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_gravity="center"
-                             android:layout_marginBottom="5dp"
-                             android:text="@string/loading"
-                             android:textStyle="bold"
-                             android:textSize="30sp"
-                             android:textColor="@color/critical"/>
-
-
-         </LinearLayout>
-
-</androidx.cardview.widget.CardView>
     </LinearLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

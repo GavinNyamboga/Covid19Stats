@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#07AC30</color>
+    <!--<color name="colorPrimary">#07AC30</color>
     <color name="colorPrimaryDark">#057221</color>
     <color name="colorAccent">#702963</color>
     <color name="covidGreen">#063307</color>
+    -->
 
     <color name="recoveryColor">#1DC926</color>
     <color name="deathsColor">#E00C0C</color>
@@ -12,10 +13,18 @@
     <color name="critical">#B90808</color>
     <color name="active">#AFAC14</color>
 
+    <color name="colorTxt">#ffffff</color>
+    <color name="colorPrimaryCards">#424242</color>
+    <color name="colorPrimary">#0288D1</color>
+    <color name="colorPrimaryDark">#212121</color>
+    <color name="colorAccent">#702963</color>
 
-    <!-- switch colors -->
-    <color name="disable_foreground_grey">#15485B</color>
-    <color name="disable_thumb_grey">#15485B</color>
-    <color name="enable_thumb_green">#15485B</color>
+    <color name="colorDayTxt">#757575</color>
+    <color name="colorPrimaryDayCards">#ffffff</color>
+    <color name="colorPrimaryDay">#0288D1</color>
+    <color name="colorPrimaryDarkDay">#EEECEC</color>
+    <color name="colorAccentDay">#e0e0e0</color>
+
+
 
 </resources>

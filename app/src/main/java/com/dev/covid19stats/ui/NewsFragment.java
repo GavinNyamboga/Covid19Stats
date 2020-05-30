@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -35,6 +36,7 @@ public class NewsFragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
 
     private List<NewsArticle> headlines;
+    private TextView loading;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -43,7 +45,7 @@ public class NewsFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_news, container, false);
 
-
+        loading = root.findViewById(R.id.loading_txt);
         recyclerView = root.findViewById(R.id.news_recyclerview);
         getNews();
         final SwipeRefreshLayout swipeRefreshLayout= root.findViewById(R.id.swipe_refresh);
@@ -67,6 +69,7 @@ public class NewsFragment extends Fragment {
             public void onResponse(Call<NewsHeadlines> call, Response<NewsHeadlines> response) {
 
                 if (response.isSuccessful()){
+                    loading.setVisibility(View.GONE);
                     assert response.body() != null;
                     headlines = response.body().getArticles();
                     NewsAdapter newsAdapter =new NewsAdapter(headlines,getContext());

@@ -5,17 +5,12 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.DeveloperFragment">
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="10dp"
-        >
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
             android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -26,17 +21,24 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="10dp"
-                        android:src="@drawable/ic_twitter"
+                        app:srcCompat="@drawable/ic_twitter"
                         android:contentDescription="@string/twitter" />
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="5dp"
+                        android:backgroundTint="?attr/colorPrimaryCards">
                     <TextView
                         android:id="@+id/twitter_link"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:text="@string/twitter_username"
                         android:textSize="20sp"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/orange"
                         android:gravity="center"
                         />
+                    </androidx.cardview.widget.CardView>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -47,18 +49,25 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="10dp"
-                        android:src="@drawable/ic_github"
+                        app:srcCompat="@drawable/ic_github"
                         android:contentDescription="@string/github" />
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="5dp"
+                        android:backgroundTint="?attr/colorPrimaryCards">
                     <TextView
                         android:id="@+id/github_link"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:text="@string/github_username"
                         android:textSize="20sp"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/orange"
                         android:gravity="center"
                         android:autoLink="web"
                         />
+                    </androidx.cardview.widget.CardView>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -69,18 +78,28 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="10dp"
-                        android:src="@drawable/ic_telephone"
+                        app:srcCompat="@drawable/ic_telephone"
                         android:contentDescription="@string/phone" />
-                    <TextView
-                        android:id="@+id/phone_number"
+                    <androidx.cardview.widget.CardView
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:text="@string/phone_number"
-                        android:textSize="20sp"
-                        android:textColor="@android:color/white"
-                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:elevation="10dp"
+                        app:cardCornerRadius="5dp"
+                        android:backgroundTint="?attr/colorPrimaryCards">
+                        <TextView
+                            android:id="@+id/phone_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:text="@string/phone_number"
+                            android:textSize="20sp"
+                            android:textColor="@color/orange"
+                            android:gravity="center"
 
-                        />
+                            />
+
+                    </androidx.cardview.widget.CardView>
+
+
                 </LinearLayout>
 
 
@@ -88,8 +107,5 @@
 
 
         </LinearLayout>
-
-
-    </androidx.cardview.widget.CardView>
 
 </FrameLayout>

@@ -34,6 +34,15 @@ public class GlobalFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.M)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        ThemeSwitch themeSwitch = new ThemeSwitch(getActivity().getApplicationContext());
+        if (themeSwitch.loadDarkMode()){
+            getContext().getTheme().applyStyle(R.style.DarkTheme,true);
+
+        }else {
+            getContext().getTheme().applyStyle(R.style.LightTheme,true);
+
+        }
+
         View root = inflater.inflate(R.layout.fragment_global, container, false);
         cases = root.findViewById(R.id.cases_total);
         recoveries = root.findViewById(R.id.recoveries_total);

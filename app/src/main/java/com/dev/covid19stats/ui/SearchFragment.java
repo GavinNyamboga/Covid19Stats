@@ -45,6 +45,14 @@ public class SearchFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        ThemeSwitch themeSwitch = new ThemeSwitch(getActivity().getApplicationContext());
+        if (themeSwitch.loadDarkMode()){
+            getContext().getTheme().applyStyle(R.style.DarkTheme,true);
+
+        }else {
+            getContext().getTheme().applyStyle(R.style.LightTheme,true);
+
+        }
 
         View root = inflater.inflate(R.layout.fragment_search, container, false);
 
@@ -54,9 +62,9 @@ public class SearchFragment extends Fragment {
 
         searchCountryTxt.requestFocus();
 
-        InputMethodManager inputMethodManager = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
-        assert inputMethodManager != null;
-        inputMethodManager.showSoftInput(searchCountryTxt,InputMethodManager.SHOW_FORCED);
+        InputMethodManager inputMethodManager = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
+
 
 
         countryName = root.findViewById(R.id.country2);

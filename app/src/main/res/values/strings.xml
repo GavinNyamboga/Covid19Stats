@@ -16,7 +16,6 @@
     <string name="global_deaths">Deaths</string>
     <string name="active">Active Cases</string>
     <string name="critical">Critical Cases</string>
-    <string name="info">Info</string>
     <string name="today_deaths"> Today Deaths</string>
     <string name="confirmed_cases">Confirmed Cases</string>
     <string name="recovered">Recovered</string>
@@ -52,4 +51,5 @@
     <string name="news_source">News Source</string>
     <string name="time_posted">Time Posted</string>
     <string name="heading">Heading.</string>
+    <string name="info">Info</string>
 </resources>

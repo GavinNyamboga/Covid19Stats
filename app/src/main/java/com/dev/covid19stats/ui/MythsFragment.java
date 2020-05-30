@@ -25,6 +25,14 @@ public class MythsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ThemeSwitch themeSwitch = new ThemeSwitch(getActivity().getApplicationContext());
+        if (themeSwitch.loadDarkMode()){
+            getContext().getTheme().applyStyle(R.style.DarkTheme,true);
+
+        }else {
+            getContext().getTheme().applyStyle(R.style.LightTheme,true);
+
+        }
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_myths, container, false);
     }

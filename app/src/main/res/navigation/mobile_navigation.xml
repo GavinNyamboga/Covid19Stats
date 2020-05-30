@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
@@ -9,19 +10,31 @@
         android:id="@+id/navigation_global"
         android:name="com.dev.covid19stats.ui.GlobalFragment"
         android:label="@string/title_global"
-        tools:layout="@layout/fragment_global" />
+        tools:layout="@layout/fragment_global" >
+        <action
+            android:id="@+id/action_navigation_global_to_navigation_country"
+            app:destination="@id/navigation_country" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_country"
         android:name="com.dev.covid19stats.ui.CountryFragment"
         android:label="@string/title_location"
-        tools:layout="@layout/fragment_country" />
+        tools:layout="@layout/fragment_country" >
+        <action
+            android:id="@+id/action_navigation_country_to_navigation_news"
+            app:destination="@id/navigation_news" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_news"
         android:name="com.dev.covid19stats.ui.NewsFragment"
         android:label="@string/title_news"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_navigation_news_to_navigation_info"
+            app:destination="@id/navigation_info" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_info"
         android:name="com.dev.covid19stats.ui.InfoFragment"

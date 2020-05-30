@@ -23,6 +23,14 @@ public class PreventionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ThemeSwitch themeSwitch = new ThemeSwitch(getActivity().getApplicationContext());
+        if (themeSwitch.loadDarkMode()){
+            getContext().getTheme().applyStyle(R.style.DarkTheme,true);
+
+        }else {
+            getContext().getTheme().applyStyle(R.style.LightTheme,true);
+
+        }
 
         View view = inflater.inflate(R.layout.fragment_prevention, container, false);
 

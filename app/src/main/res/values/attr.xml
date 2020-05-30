@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorTxt" format="color"></attr>
+    <attr name="colorPrimary" format="color"></attr>
+    <attr name="colorPrimaryCards" format="color"></attr>
+    <attr name="colorAccent" format="color"></attr>
+</resources>

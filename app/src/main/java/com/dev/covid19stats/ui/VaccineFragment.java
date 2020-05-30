@@ -29,7 +29,14 @@ public class VaccineFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        ThemeSwitch themeSwitch = new ThemeSwitch(getActivity().getApplicationContext());
+        if (themeSwitch.loadDarkMode()){
+            getContext().getTheme().applyStyle(R.style.DarkTheme,true);
+
+        }else {
+            getContext().getTheme().applyStyle(R.style.LightTheme,true);
+
+        }
         View view = inflater.inflate(R.layout.fragment_vaccine, container, false);
 
         TextView treatment = view.findViewById(R.id.vaccine_txt);

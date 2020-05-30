@@ -35,19 +35,29 @@ public class CountryFragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private List<CountriesResources> countriesResourcesList;
 
+
     public CountryFragment() {
 
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        ThemeSwitch themeSwitch = new ThemeSwitch(getActivity().getApplicationContext());
+        if (themeSwitch.loadDarkMode()){
+            getContext().getTheme().applyStyle(R.style.DarkTheme,true);
+
+        }else {
+            getContext().getTheme().applyStyle(R.style.LightTheme,true);
+
+
+        }
 
 
 
         View view = inflater.inflate(R.layout.fragment_country, container, false);
 
         recyclerView = view.findViewById(R.id.RecyclerView);
-        progressBar = view.findViewById(R.id.progress_bar);
+
         EditText search = view.findViewById(R.id.search_country2);
 
 
@@ -59,7 +69,6 @@ public class CountryFragment extends Fragment {
             public void onResponse(Call<List<CountriesResources>> call, Response<List<CountriesResources>> response) {
                 if (response.isSuccessful()){
 
-                    progressBar.setVisibility(View.GONE);
                     countriesResourcesList = response.body();
 
                     CountriesAdapter countriesAdapter = new CountriesAdapter(countriesResourcesList,getContext());

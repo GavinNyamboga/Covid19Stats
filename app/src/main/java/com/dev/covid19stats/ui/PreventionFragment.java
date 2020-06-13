@@ -36,7 +36,7 @@ public class PreventionFragment extends Fragment {
 
         TextView prevention = view.findViewById(R.id.prevention_txt);
 
-        prevention.setText(Html.fromHtml("<b>To prevent the spread of COVID-md_garlic:</b><br>" +
+        prevention.setText(Html.fromHtml("<b>To prevent the spread of COVID-19:</b><br>" +
                 "<ol>"+
                 "  <li>Clean your hands often. Use soap and water, or an alcohol-based hand rub.</li>" +
                 " <li>Maintain a safe distance from anyone who is coughing or sneezing.</li>" +

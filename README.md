@@ -15,6 +15,11 @@ globally and by each country and also provides information about the Corona Viru
 [NovelCOVID API](https://corona.lmao.ninja/docs/)\
 [NewsAPI](https://newsapi.org)
 
+### Screenshots
+<img src="https://raw.github.com/gavinnyamboga/Covid19Stats/master/screenshots/screen1.png" width="250"/>
+<img src="https://raw.github.com/gavinnyamboga/Covid19Stats/master/screenshots/screen2.png" width="250"/>
+<img src="https://raw.github.com/gavinnyamboga/Covid19Stats/master/screenshots/screen3.png" width="250"/>
+<img src="https://raw.github.com/gavinnyamboga/Covid19Stats/master/screenshots/screen4.png" width="250"/>
 
 ### icons used
 [FlatIcons](http://www.flaticon.com)
